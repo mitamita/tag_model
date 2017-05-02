@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>内容:</strong>
+  <%= @post.text %>
+</p>
+<p>
+  <strong>タグ:</strong>
+  
+</p>
+
+
+
+
+
+<%= link_to '編集', edit_post_path(@post) %> |
+<%= link_to '戻る', root_path %>

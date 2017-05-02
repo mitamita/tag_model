@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <div id="main">
+      <img class="image" src="/assets/e.jpg" alt="e.jpg" />
+  </div>
+
+
+  <tbody>
+    <% @posts.each do |post| %>
+    <div class="unit">
+
+   <h2><%= post.title %></h2>
+
+  
+ <p>
+        <a>Tag: <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) do |t|%>
+          <%= t.label(class: "checkbox-inline") { t.check_box + t.text } %>
+         <% end %></p>
+    <p>     <a><%= link_to '詳細', post %></a>
+        <a><%= link_to '編集', edit_post_path(post) %> </a>
+        <a><%= link_to '削除', post, method: :delete, data: { confirm: '削除していいですか?' } %></a>
+ </p>
+    </div>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
